@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import { getMtvWeather, getVanWeather } from '@/utils/weather-api-helpers';
+import { WeatherCard } from './WeatherCard';
+import { WeatherData } from '@/utils/types';
 
 export default function Home() {
-  const [mtvWeatherData, setMtvWeatherData] = useState<any>();
-  const [vanWeatherData, setVanWeatherData] = useState<any>();
+  const [mtvWeatherData, setMtvWeatherData] = useState<WeatherData>();
+  const [vanWeatherData, setVanWeatherData] = useState<WeatherData>();
 
   const _getMtvWeaterData = async () => {
     const mtvWeather = await getMtvWeather();
@@ -43,14 +45,14 @@ export default function Home() {
 
   useEffect(() => {
     _getMtvWeaterData();
-    _getVanWeatherData()
+    _getVanWeatherData();
   }, []);
   
   return (
     <main>
-      <div>
-        <p>{vanWeatherData?.currentTemp}</p>
-        <p>{mtvWeatherData?.currentTemp}</p>
+      <div className="grid items-center gap-x-16 grid-cols-2 w-full h-screen px-28">
+        {vanWeatherData && <WeatherCard weatherData={vanWeatherData}/>}
+        {mtvWeatherData && <WeatherCard weatherData={mtvWeatherData}/>}
       </div>
     </main>
   )
