@@ -1,4 +1,5 @@
 export interface WeatherData {
+    city: string;
     currentTemp: number;
     feelsLike: number;
     conditions: string;

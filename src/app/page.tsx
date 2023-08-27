@@ -12,11 +12,12 @@ export default function Home() {
   const _getMtvWeaterData = async () => {
     const mtvWeather = await getMtvWeather();
     const mtvData = {
+      city: "Mountain View",
       currentTemp: mtvWeather?.currentConditions.temp,
       feelsLike: mtvWeather?.currentConditions.feelslike,
       conditions: mtvWeather?.currentConditions.conditions,
       humidity: mtvWeather?.currentConditions.humidity,
-      precipProb: mtvWeather?.currentConditions.precipProb,
+      precipProb: mtvWeather?.currentConditions.precipprob,
       sunrise: mtvWeather?.currentConditions.sunrise,
       sunset: mtvWeather?.currentConditions.sunset,
       uvIndex: mtvWeather?.currentConditions.uvindex,
@@ -29,11 +30,12 @@ export default function Home() {
   const _getVanWeatherData = async () => {
     const vanWeather = await getVanWeather();
     const vanData = {
+      city: "Vancouver",
       currentTemp: vanWeather?.currentConditions.temp,
       feelsLike: vanWeather?.currentConditions.feelslike,
       conditions: vanWeather?.currentConditions.conditions,
       humidity: vanWeather?.currentConditions.humidity,
-      precipProb: vanWeather?.currentConditions.precipProb,
+      precipProb: vanWeather?.currentConditions.precipprob,
       sunrise: vanWeather?.currentConditions.sunrise,
       sunset: vanWeather?.currentConditions.sunset,
       uvIndex: vanWeather?.currentConditions.uvindex,
